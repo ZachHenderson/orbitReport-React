@@ -1,3 +1,5 @@
+import "./styling.css";
+
 const Table = ({ sat }) => {
   return (
       <table>
@@ -10,9 +12,15 @@ const Table = ({ sat }) => {
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Row Data TBD</td>
-        </tr>
+          {sat.map((data, id) => (
+            <tr key={id}>
+              <td>{data.name}</td>
+              <td>{data.type}</td>
+              <td>{data.launchDate}</td>
+              <td>{data.operational ? "Active" : "Inactive"}</td>
+            </tr>
+          ))}
+
         </tbody>
       </table>
   );
